@@ -1,0 +1,11 @@
+.titulo {
+    color: #6272fd;
+    text-align: center;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+.img {
+    width: 400px;
+    display: block;
+    margin: 0 auto;
+}
