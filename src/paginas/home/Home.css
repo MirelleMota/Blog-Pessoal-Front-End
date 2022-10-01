@@ -1,11 +1,18 @@
-.titulo {
-    color: #6272fd;
-    text-align: center;
-    font-family: 'ABeeZee', sans-serif;
+.caixa {
+    background-color: #ffccbc;
 }
 
-.img {
-    width: 400px;
-    display: block;
-    margin: 0 auto;
+.titulo {
+    color: black !important;
+    font-weight: bold !important;
+}
+
+.botao {
+    border-color: black !important;
+    background-color: #3F51B5;
+    color: black !important;
+}
+
+.postagens {
+    background-color: white;
 }

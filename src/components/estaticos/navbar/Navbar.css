@@ -1,0 +1,9 @@
+.cursor {
+    cursor: pointer;
+    color: white
+}
+
+.logout {
+    text-decoration: none;
+    color: #fff;
+  }
