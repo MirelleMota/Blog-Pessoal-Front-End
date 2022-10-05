@@ -1,5 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { Grid, Box, Typography, TextField, Button } from '@mui/material';
+import { Grid, Box, TextField,} from '@mui/material';
+import { Typography, Button } from '@material-ui/core';
 import { Link, useNavigate } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../service/Service';
@@ -14,6 +15,7 @@ function Login() {
             id: 0,
             usuario: '',
             senha: '',
+            foto: '',
             token: ''
         }
         )
