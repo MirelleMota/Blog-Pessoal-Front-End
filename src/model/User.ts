@@ -5,4 +5,4 @@ interface User {
     senha: string;
     }
     
-      export default User
+      export default User;
