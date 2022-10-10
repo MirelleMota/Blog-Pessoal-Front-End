@@ -42,7 +42,7 @@ function Navbar() {
               </Box>
               </Link>
 
-              <Link to="/tema" className='text-decoration-none'>
+              <Link to="/temas" className='text-decoration-none'>
               <Box mx={1} className="cursor">
                 <Typography variant="h6" color="inherit">
                   Temas

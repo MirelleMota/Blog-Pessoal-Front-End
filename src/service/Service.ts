@@ -16,7 +16,7 @@ export const login = async (url: any, dados: any, setDados: any) => {  // /usuar
 
 export const busca = async (url: any, setDados: any, headers: any) => {  // /usuarios/logar
   const resposta = await api.get(url, headers) // Precisa autenticar
-  setDados(resposta.data) //getAll -> Requisição para buscar as postagens
+  setDados(resposta.data) //getAll -> Requisição para buscar 
 }
 
 export const buscaId = async(url: any,setDados: any, header: any) => { 
