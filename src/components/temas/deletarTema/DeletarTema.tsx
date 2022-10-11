@@ -1,16 +1,19 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material";
 import React, { ChangeEvent, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import Tema from "../../../model/Tema";
 import { buscaId, deleteId } from "../../../service/Service";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 import './DeletarTema.css';
 
 function DeletarTema() {
 
   let navigate = useNavigate();
     const { id } = useParams<{id: string}>(); // caaptura parametros
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>( //useSelector é um hook que acessa o store e pega o token e atribui ina constante
+  (state) => state.tokens
+);
     const [tema, setTema] = useState<Tema>()
     
     useEffect(() => {

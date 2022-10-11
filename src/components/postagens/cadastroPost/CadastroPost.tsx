@@ -1,17 +1,20 @@
 import { Button, Container, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import React, { ChangeEvent, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import Postagem from "../../../model/Postagem";
 import Tema from "../../../model/Tema";
 import { busca, buscaId, post, put } from "../../../service/Service";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 
 function CadastroPost() {
 
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const [Temas, setTemas] = useState<Tema[]>([])
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>( //useSelector é um hook que acessa o store e pega o token e atribui ina constante
+  (state) => state.tokens
+);
 
     useEffect(() => {
         if (token == "") {

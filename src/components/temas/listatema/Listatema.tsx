@@ -4,7 +4,9 @@ import { Box, Card, CardActions, CardContent, Button, Typography } from '@mui/ma
 import Tema from '../../../model/Tema';
 import { busca } from '../../../service/Service';
 import './ListaTema.css';
-import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+
 
 function ListaTema() {
    //trazer a função de navegação interna
@@ -14,7 +16,9 @@ function ListaTema() {
    const [tema, setTema] = useState<Tema[]>([])
  
    // trazer o token do navegador para dentro do blog
-   const [token, setToken] = useLocalStorage('token');
+   const token = useSelector<TokenState, TokenState["tokens"]>( //useSelector é um hook que acessa o store e pega o token e atribui ina constante
+  (state) => state.tokens
+);
  
    //verificar se a pessoa tem token, se não tiver, mandar pra login
    useEffect(() => {
@@ -53,14 +57,14 @@ function ListaTema() {
            <CardActions>
              <Box display="flex" justifyContent="center" mb={1.5} >
  
-               <Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
+               <Link to={`/formularioTema/${tema.id}`} className="text-decoration-none">
                  <Box mx={1}>
                    <Button variant="contained" className="marginLeft" size='small' color="primary" >
                      atualizar
                    </Button>
                  </Box>
                </Link>
-               <Link to={`/deletarTema/${tema.id}`} className="text-decorator-none">
+               <Link to={`/deletarTema/${tema.id}`} className="text-decoration-none">
                  <Box mx={1}>
                    <Button variant="contained" size='small' color="secondary">
                      deletar

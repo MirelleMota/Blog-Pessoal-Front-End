@@ -1,10 +1,11 @@
 import { Box, Card, CardContent, Typography, CardActions, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import Postagem from "../../../model/Postagem";
 import Tema from "../../../model/Tema";
 import { buscaId, deleteId } from "../../../service/Service";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 
 
 
@@ -12,7 +13,9 @@ function DeletarPostagem() {
 
   let navigate = useNavigate();
     const { id } = useParams<{id: string}>(); // caaptura parametros
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>( //useSelector é um hook que acessa o store e pega o token e atribui ina constante
+  (state) => state.tokens
+);
     const [post, setPosts] = useState<Postagem>()
     
     useEffect(() => {
