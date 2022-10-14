@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import {useNavigate } from 'react-router-dom';
 import { addToken } from '../../../store/tokens/actions';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 import './Navbar.css'
 
 function Navbar() {
@@ -16,7 +17,16 @@ function Navbar() {
 
   function goLogout(){ //substitui o token por "vazio" - usuário deslogado
    dispatch(addToken(''));
-    alert("Usuário deslogado")
+    toast.info('Usuário deslogado', {
+      position: "top-right", 
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "colored",
+      progress: undefined,
+    });
     navigate('/login') // direciona p/ Login
   }
   var navbarComponent;
