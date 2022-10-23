@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@mui/material';
 import Tema from '../../../model/Tema';
 import { busca } from '../../../service/Service';
@@ -14,7 +14,7 @@ function ListaTema() {
    let navigate = useNavigate();
   
    // estado para gerenciar os temas que virão do backend
-   const [tema, setTema] = useState<Tema[]>([])
+   const [tema, setTema] = useState<Tema[]>([]);
  
    // trazer o token do navegador para dentro do blog
    const token = useSelector<TokenState, TokenState["tokens"]>( //useSelector é um hook que acessa o store e pega o token e atribui ina constante
@@ -42,13 +42,13 @@ function ListaTema() {
    async function getTema(){
      await busca('/tema', setTema, {
        headers: {'Authorization': token}
-     })
+     });
    }
  
    //função para disparar a busca de temas assim que a tela for carregada
    useEffect(() => {
      getTema()
-   }, [tema.length])
+   }, [tema.length]);
  
    return (
      <>
@@ -87,7 +87,7 @@ function ListaTema() {
        </Box>
        ))}
      </>
-   )
+   );
  }
 
 export default ListaTema;
